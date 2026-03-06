@@ -2,7 +2,13 @@
   "name": "@libsci/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "nx run-many -t dev --no-tui",
+    "build": "nx run-many -t build --no-tui",
+    "lint": "nx run-many -t lint --no-tui",
+    "test": "nx run-many -t test --no-tui",
+    "e2e": "nx run-many -t e2e --no-tui"
+  },
   "private": true,
   "dependencies": {
     "next": "~16.0.1",
