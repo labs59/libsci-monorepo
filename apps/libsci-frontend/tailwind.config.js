@@ -17,7 +17,12 @@ module.exports = {
     //     ...createGlobPatternsForDependencies(__dirname)
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'google-sans': 'var(--font-google-sans)',
+        'ibm-plex-thai': 'var(--font-ibm-plex-thai)',
+      },
+    },
   },
   plugins: [],
 };
