@@ -8,6 +8,18 @@
     },
     {
       "path": "./apps/libsci-frontend"
+    },
+    {
+      "path": "./libs/shared/ui"
+    },
+    {
+      "path": "./libs/shared/utils"
+    },
+    {
+      "path": "./libs/shared/types"
+    },
+    {
+      "path": "./libs/data-access"
     }
   ]
 }
