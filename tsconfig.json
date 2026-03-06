@@ -10,13 +10,13 @@
       "path": "./apps/libsci-frontend"
     },
     {
-      "path": "./libs/shared/ui"
+      "path": "./libs/ui"
     },
     {
-      "path": "./libs/shared/utils"
+      "path": "./libs/utils"
     },
     {
-      "path": "./libs/shared/types"
+      "path": "./libs/types"
     },
     {
       "path": "./libs/data-access"
