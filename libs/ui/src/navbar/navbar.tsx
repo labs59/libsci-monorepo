@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 
 const navLinks = [
@@ -17,7 +18,7 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <a href="/" className="text-xl font-bold tracking-tight text-gray-900">
-          LibSci
+          <Image src="/logo.svg" alt="Logo" width={189} height={48} className="inline-block mr-2" />          
         </a>
 
         {/* Desktop links */}
