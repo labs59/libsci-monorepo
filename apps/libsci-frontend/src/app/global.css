@@ -3,8 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --font-google-sans: "Google Sans", sans-serif;
-  --font-ibm-plex-thai: "IBM Plex Sans Thai", sans-serif;
+  --font-google-sans: 'Google Sans', 'Noto Sans Thai', 'IBM Plex Sans Thai',
+    sans-serif;
+  --font-ibm-plex-thai: 'IBM Plex Sans Thai', sans-serif;
+  --font-noto-sans-thai: 'Noto Sans Thai', 'IBM Plex Sans Thai', sans-serif;
 }
 
 body {

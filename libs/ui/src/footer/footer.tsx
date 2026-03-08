@@ -1,39 +1,40 @@
+'use client';
+
 import Link from 'next/link';
-
-const quickLinks = [
-  { label: 'About', href: '/about' },
-  { label: 'Programs', href: '/programs/bachelor' },
-  { label: 'Classes', href: '/classes' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Events', href: '/events' },
-];
-
-const communityLinks = [
-  { label: 'Class Review', href: '/community/class-review' },
-  { label: 'Career Path', href: '/community/career-path' },
-  { label: 'Graduate Admission', href: '/apply/graduate' },
-];
+import { useI18n } from '../i18n/provider';
 
 export function Footer() {
+  const { t } = useI18n();
+
+  const quickLinks = [
+    { labelKey: 'footer.about', href: '/about' },
+    { labelKey: 'footer.programs', href: '/programs/bachelor' },
+    { labelKey: 'footer.classes', href: '/classes' },
+    { labelKey: 'footer.blog', href: '/blog' },
+    { labelKey: 'footer.events', href: '/events' },
+  ];
+
+  const communityLinks = [
+    { labelKey: 'footer.classReview', href: '/community/class-review' },
+    { labelKey: 'footer.careerPath', href: '/community/career-path' },
+    { labelKey: 'footer.graduateAdmission', href: '/apply/graduate' },
+  ];
+
   return (
     <footer className="bg-[#1e0a28] text-white">
       <div className="mx-auto max-w-5xl px-6 py-12">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
             <h3 className="mb-3 text-lg font-medium">
-              Department of Library Science
+              {t('footer.departmentName')}
             </h3>
-            <p className="text-sm text-gray-300">
-              Faculty of Arts, Chulalongkorn University
-              <br />
-              254 Phaya Thai Road, Wang Mai, Pathum Wan
-              <br />
-              Bangkok 10330, Thailand
+            <p className="whitespace-pre-line text-sm text-gray-300">
+              {t('footer.address')}
             </p>
           </div>
           <div>
             <h4 className="mb-3 text-sm font-medium uppercase tracking-wider text-gray-400">
-              Quick Links
+              {t('footer.quickLinks')}
             </h4>
             <ul className="flex flex-col gap-2">
               {quickLinks.map((link) => (
@@ -42,7 +43,7 @@ export function Footer() {
                     href={link.href}
                     className="text-sm text-gray-300 transition-colors hover:text-white"
                   >
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 </li>
               ))}
@@ -50,7 +51,7 @@ export function Footer() {
           </div>
           <div>
             <h4 className="mb-3 text-sm font-medium uppercase tracking-wider text-gray-400">
-              Community
+              {t('footer.community')}
             </h4>
             <ul className="flex flex-col gap-2">
               {communityLinks.map((link) => (
@@ -59,7 +60,7 @@ export function Footer() {
                     href={link.href}
                     className="text-sm text-gray-300 transition-colors hover:text-white"
                   >
-                    {link.label}
+                    {t(link.labelKey)}
                   </Link>
                 </li>
               ))}
@@ -67,7 +68,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-sm text-gray-400">
-          &copy; {new Date().getFullYear()} Department of Library Science, Faculty of Arts, Chulalongkorn University
+          &copy; {new Date().getFullYear()} {t('footer.copyright')}
         </div>
       </div>
     </footer>

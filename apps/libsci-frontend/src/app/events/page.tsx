@@ -1,25 +1,32 @@
-import Link from 'next/link';
-import { PageHeader, SectionContainer } from '@libsci/ui';
+'use client';
 
-const events = [
-  { title: 'International Conference on Information Studies 2026', date: '15-17 Apr 2026', location: 'Maha Chakri Sirindhorn Building', description: 'Annual conference featuring keynote speakers from leading universities worldwide.' },
-  { title: 'Workshop: AI in Information Retrieval', date: '25 Mar 2026', location: 'Room 401, Faculty of Arts', description: 'Hands-on workshop exploring the latest AI techniques in search and information retrieval.' },
-  { title: 'Guest Lecture: Future of Digital Libraries', date: '20 Mar 2026', location: 'Auditorium, Faculty of Arts', description: 'Distinguished lecture by a visiting professor from the University of Michigan.' },
-  { title: 'Student Research Symposium', date: '10 Mar 2026', location: 'Conference Hall, Faculty of Arts', description: 'Graduate and undergraduate students present their research projects and findings.' },
-];
+import Link from 'next/link';
+import { PageHeader, SectionContainer, useI18n } from '@libsci/ui';
 
 export default function EventsPage() {
+  const { t } = useI18n();
+
+  const events = [0, 1, 2, 3].map((i) => ({
+    title: t(`events.event${i}Title`),
+    date: t(`events.event${i}Date`),
+    location: t(`events.event${i}Location`),
+    description: t(`events.event${i}Desc`),
+  }));
+
   return (
     <SectionContainer>
       <div className="flex flex-col gap-12">
         <PageHeader
-          title="Events"
-          subtitle="Upcoming seminars, workshops, conferences, and other events from the Department of Library Science."
+          title={t('events.title')}
+          subtitle={t('events.subtitle')}
         />
 
         <div className="grid gap-6 sm:grid-cols-2">
           {events.map((event, i) => (
-            <div key={i} className="flex flex-col gap-3 rounded-2xl bg-[#f6f6f6] p-5">
+            <div
+              key={i}
+              className="flex flex-col gap-3 rounded-2xl bg-[#f6f6f6] p-5"
+            >
               <div className="flex items-center gap-3">
                 <span className="rounded-full bg-[#341443] px-3 py-0.5 text-xs font-medium text-white">
                   {event.date}
@@ -33,7 +40,7 @@ export default function EventsPage() {
                   href="/events/register"
                   className="text-sm font-medium text-[#341443] hover:underline"
                 >
-                  Register &rarr;
+                  {t('events.register')} &rarr;
                 </Link>
               </div>
             </div>

@@ -1,4 +1,6 @@
 export { Navbar } from './navbar/navbar';
+export { I18nProvider, useI18n } from './i18n/provider';
+export type { Locale } from './i18n/provider';
 export { PageHeader } from './page-header/page-header';
 export type { PageHeaderProps } from './page-header/page-header';
 export { SectionContainer } from './section-container/section-container';

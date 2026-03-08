@@ -1,33 +1,34 @@
-import { PageHeader, SectionContainer, FormSkeleton } from '@libsci/ui';
+'use client';
 
-const formSections = [
-  {
-    heading: 'Participant Information',
-    fields: [
-      { label: 'Full Name', type: 'text' as const },
-      { label: 'Email Address', type: 'email' as const },
-      { label: 'Phone Number', type: 'tel' as const },
-      { label: 'Affiliation / Organization', type: 'text' as const },
-    ],
-  },
-  {
-    heading: 'Event Selection',
-    fields: [
-      { label: 'Select Event', type: 'select' as const },
-      { label: 'Dietary Requirements / Special Needs', type: 'textarea' as const },
-    ],
-  },
+import { PageHeader, SectionContainer, FormSkeleton, useI18n } from '@libsci/ui';
+
+const sectionDefs = [
+  { key: 'section0', fieldCount: 4, fieldTypes: ['text', 'email', 'tel', 'text'] as const },
+  { key: 'section1', fieldCount: 2, fieldTypes: ['select', 'textarea'] as const },
 ];
 
 export default function EventRegisterPage() {
+  const { t } = useI18n();
+
+  const formSections = sectionDefs.map(({ key, fieldCount, fieldTypes }) => ({
+    heading: t(`eventRegister.${key}Heading`),
+    fields: Array.from({ length: fieldCount }, (_, i) => ({
+      label: t(`eventRegister.${key}Field${i}`),
+      type: fieldTypes[i],
+    })),
+  }));
+
   return (
     <SectionContainer>
       <div className="flex flex-col gap-12">
         <PageHeader
-          title="Event Registration"
-          subtitle="Register for upcoming department events, workshops, and conferences."
+          title={t('eventRegister.title')}
+          subtitle={t('eventRegister.subtitle')}
         />
-        <FormSkeleton title="Registration Form" sections={formSections} />
+        <FormSkeleton
+          title={t('eventRegister.formTitle')}
+          sections={formSections}
+        />
       </div>
     </SectionContainer>
   );

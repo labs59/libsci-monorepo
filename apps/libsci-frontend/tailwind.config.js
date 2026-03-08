@@ -19,7 +19,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        sans: 'var(--font-google-sans)',
         'google-sans': 'var(--font-google-sans)',
+        'noto-thai': 'var(--font-noto-sans-thai)',
         'ibm-plex-thai': 'var(--font-ibm-plex-thai)',
       },
     },
