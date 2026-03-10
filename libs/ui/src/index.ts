@@ -10,3 +10,8 @@ export type { SkeletonCardProps } from './skeleton-card/skeleton-card';
 export { FormSkeleton } from './form-skeleton/form-skeleton';
 export type { FormSkeletonProps, FormSkeletonField } from './form-skeleton/form-skeleton';
 export { Footer } from './footer/footer';
+export { FullPageStepper } from './full-page-stepper/full-page-stepper';
+export type {
+  FullPageStepperProps,
+  StepperStep,
+} from './full-page-stepper/full-page-stepper';
